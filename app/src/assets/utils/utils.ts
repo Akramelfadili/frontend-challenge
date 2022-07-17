@@ -1,1 +1,1 @@
-export const data_path = "assets/api/volumes/"
+export const data_path = "assets/api"

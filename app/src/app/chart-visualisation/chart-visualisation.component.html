@@ -1,2 +1,13 @@
-<div class="title">This is the data visualisation for the 250162 volumes</div>
+<div class="title">Visualize Categories Volumes </div>
+<div class="title2">Choose a Category to visualize </div>
+<div class="category">
+     <div class="category_title">Category : </div>
+     <div class="category_selection">
+          <select class="category_select_input" (change)="setCategory($event.target)">
+               <option *ngFor="let categorie of data" [value]="categorie.value">
+                    {{categorie.viewValue}}
+               </option>
+          </select>
+     </div>
+</div>
 <div id="chartdiv" class="chart" style="width: 80%; height: 500px"></div>

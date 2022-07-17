@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { JsonData } from 'src/app/interfaces/templates';
+import { Category, JsonData } from 'src/app/interfaces/templates';
 import { data_path } from 'src/assets/utils/utils';
 
 @Injectable({
@@ -16,7 +16,15 @@ export class AppService {
   
   // get the volumes
   getDataVolumes (volume_name: string): Observable<JsonData[]> {
-    return this.http_client.get<JsonData[]>(`${data_path}/${volume_name}`)
+    return this.http_client.get<JsonData[]>(`${data_path}/volumes/${volume_name}.json`)
+      .pipe(
+         map(res => res)
+      );
+  }
+
+  //get the categories
+  getCategoriesData()  : Observable<Category[]> {
+    return this.http_client.get<Category[]>(`${data_path}/categories.json`)
       .pipe(
          map(res => res)
       );
